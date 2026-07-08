@@ -27,7 +27,7 @@ async function createServer() {
   }
   console.log('Request URL: ',isProd)
   console.log('Development Mode', __dirname)
-  app.use('/{*splat}', async (req, res) => {
+  app.use(/.*/, async (req, res) => {
     const url = req.originalUrl
 
     try {
@@ -45,7 +45,7 @@ async function createServer() {
       }
 
       // Render the app HTML components
-      const { html: appHtml } = render()
+      const { html: appHtml } = await render(url)
 
       // Inject the app HTML into your layout template
       const html = template.replace(`<!--ssr-outlet-->`, appHtml)
