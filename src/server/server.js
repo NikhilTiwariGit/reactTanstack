@@ -2,22 +2,34 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import express from 'express'
+import http from 'http'
 
 const __dirname = process.cwd()
 const isProd = process.env.NODE_ENV === 'production'
 
 async function createServer() {
   const app = express()
+  const server = http.createServer(app)
   let vite
   if (!isProd) {
     // Create Vite server in middleware mode for local development
     const { createServer: createViteServer } = await import('vite')
     vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true, hmr: {
+          protocol: 'ws',
+          host: 'localhost',
+          port: 5174,
+        }
+      },
       appType: 'custom'
     })
-    
+
     app.use(vite.middlewares)
+
+    server.on('upgrade', (req, socket, head) => {
+      vite.ws.handleUpgrade(req, socket, head)
+    })
   } else {
     // Serve production assets staticly
     app.use((await import('compression')).default())
@@ -25,16 +37,17 @@ async function createServer() {
       index: false
     }))
   }
-  console.log('Request URL: ',isProd)
+  console.log('Request URL: ', isProd)
   console.log('Development Mode', __dirname)
   app.use(/.*/, async (req, res) => {
     const url = req.originalUrl
 
     try {
       let template, render
-      
+
       if (!isProd) {
         // Read index.html and apply Vite transforms in development
+        // vite.moduleGraph.invalidateAll()
         template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8')
         template = await vite.transformIndexHtml(url, template)
         render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render

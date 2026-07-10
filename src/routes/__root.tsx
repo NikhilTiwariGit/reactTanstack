@@ -1,15 +1,13 @@
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
+import { createRootRoute, Outlet } from '@tanstack/react-router'
+import Header from '@/componet/Header'
 
 
 export const Route = createRootRoute({
   component: () => (
-    <div className="p-6">
+    <div className="">
       {/* Navigation Links with 100% type safety */}
-      <nav className="mb-4 flex gap-4 text-blue-600 underline">
-        <Link to="/" className="[&.active]:font-bold text-gray-700">Home</Link>
-        {/* <Link to="/product" className="[&.active]:font-bold text-gray-700">Product</Link> */}
-      </nav>
-      <hr className="my-4" />
+      <Header />
+      <hr className="my-1" />
       {/* Child routes render here */}
       <Outlet />
     </div>
