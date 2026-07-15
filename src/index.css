@@ -2,6 +2,7 @@
 
 :root {
   --text-color: #fff;
+  --background-color: #000;
   --text-h: #08060d;
   --bg: #fff;
   --border: #e5e4e7;
@@ -26,10 +27,24 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --background-image-hero-banner: url('@/assets/header-background.jpg');
+  --animate-typing: typing 3.5s steps(40, end) infinite, blink-caret .75s step-end infinite;
 
   @media (max-width: 1024px) {
     font-size: 16px;
   }
+}
+
+/* Define the typing motion keyframe */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Define the flashing typing cursor keyframe */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgb(37, 99, 235) } /* Cursor color (Blue-600) */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,7 +72,7 @@ body {
 }
 
 #root {
-  width: 1126px;
+  /* width: 1126px; */
   max-width: 100%;
   margin: 0 auto;
   text-align: center;

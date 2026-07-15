@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import HeroImage from '@/componet/HeroImage'
+import PortfolioSections from '@/componet/PortfolioSections'
 
 export const Route = createFileRoute('/')({
   component: HomeComponent,
@@ -7,9 +8,9 @@ export const Route = createFileRoute('/')({
 
 function HomeComponent() {
   return (
-    <div>
+    <div className="relative">
       <HeroImage />
-      <h1 className="text-2xl font-bold">Welcome Home!</h1>
+      <PortfolioSections />
     </div>
   )
 }

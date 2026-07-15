@@ -7,7 +7,7 @@ export const Route = createRootRoute({
     <div className="">
       {/* Navigation Links with 100% type safety */}
       <Header />
-      <hr className="my-1" />
+      <hr/>
       {/* Child routes render here */}
       <Outlet />
     </div>
