@@ -11,9 +11,9 @@ const Header = () => {
         <a href="#works" className="text-white/90 transition hover:text-white">Works</a>
         <a href="#portfolio" className="text-white/90 transition hover:text-white">Portfolio</a>
         <a href="#contact" className="text-white/90 transition hover:text-white">Contact</a>
-        <Link to="/product" className={`${activeClassName} text-white/90 transition hover:text-white`}>
+        {/* <Link to="/product" className={`${activeClassName} text-white/90 transition hover:text-white`}>
           Product
-        </Link>
+        </Link> */}
       </div>
     </nav>
   )
