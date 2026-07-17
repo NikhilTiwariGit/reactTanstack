@@ -2,7 +2,7 @@ type SectionHeadingProps = {
     id: string
     eyebrow: string
     title: string
-    description: string
+    description?: string
 }
 
 const SectionHeading = ({ id, eyebrow, title, description }: SectionHeadingProps) => (

@@ -1,14 +1,13 @@
 import heroBackground from '@/assets/header-background.jpg'
-import profileImage from '@/assets/hero.png'
+import profileImage from '@/assets/nikhilImage.jpg'
 import { getYearsDifference } from '@/helpers/date.helpes'
 
 const socialLinks = [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nikhil-tiwari-56422718b' },
     { label: 'Facebook', href: 'https://www.facebook.com/nikhil.tiwari.9803150' },
     { label: 'Twitter', href: 'https://twitter.com/NikhilT94103233?s=09' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/nikhil-tiwari-56422718b' },
     { label: 'Instagram', href: 'https://www.instagram.com/invites/contact/?i=1m3llzshfi8i7&utm_content=1kl3lnc' },
-    { label: 'GitHub', href: 'https://github.com/7123-developer' },
-    { label: 'Skype', href: 'https://join.skype.com/invite/YOUIdjRkLt7U' },
+    { label: 'GitHub', href: 'https://github.com/NikhilTiwariGit' },
 ]
 
 const HeroImage = () => {
