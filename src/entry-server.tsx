@@ -1,7 +1,7 @@
 // src/entry-server.tsx
 import ReactDOMServer from 'react-dom/server'
 import { createMemoryHistory, RouterProvider } from '@tanstack/react-router'
-import { createMyRouter } from './app.tsx'
+import { createMyRouter } from '@/App'
 
 export async function render(url: string) {
   // 1. Create a isolated, fresh router instance for this specific request
