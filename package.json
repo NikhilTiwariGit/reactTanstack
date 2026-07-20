@@ -10,10 +10,13 @@
     "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.101.3",
+    "@tanstack/react-query-devtools": "^5.101.3",
     "@tanstack/react-router": "^1.170.17",
     "express": "^5.2.1",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "swiper": "^14.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
